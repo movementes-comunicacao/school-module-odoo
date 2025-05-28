@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem
+                name="Cadastro de Alunos"
+                id="alunos_menu"
+                action="matriculas.action_students_data"
+                sequence="10"/>
+        <menuitem 
+                name="Aulas"
+                id="aulas_menu"
+                parent="alunos_menu"
+                action="matriculas.action_grade_data"
+                sequence="1"/>
+        <menuitem 
+                name="Professores"
+                id="professors_menu"
+                parent="alunos_menu"
+                action="matriculas.action_professors_data"
+                sequence="1"/>
+    </data>
+</odoo>
