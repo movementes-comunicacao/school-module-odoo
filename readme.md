@@ -1,0 +1,1 @@
+Custom addon for odoo - need to have odoo installed and implement this on the odoo server path.

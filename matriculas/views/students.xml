@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- FORM DATA -->
+		<record id="view_action_students_data_form" model="ir.ui.view">
+			<field name="name">students.data.form.view</field>
+			<field name="model">students.data</field>
+			<field name="arch" type="xml">
+				<form string="Pessoas Matriculadas">
+					<sheet>
+						<group string="Informação Aplicante">
+							<field name="name" />
+							<field name="birth_date" />
+							<field name="age" />
+							<field name="minor_bool" />
+							<field name="cpf_apl" placeholder="apenas números" />
+							<field name="rg_apl" placeholder="apenas números" />
+							<field name="tel_apl" placeholder="apenas números" />
+							<field name="tel_emer" placeholder="apenas números" />
+							<field name="nome_emer" />
+						</group>
+						<group string="Informação Responsável" invisible="not minor_bool">
+							<field name="nome_resp" />
+							<field name="cpf_resp" placeholder="apenas números" />
+							<field name="rg_resp" placeholder="apenas números" />
+							<field name="tel_resp" placeholder="apenas números" />
+							<field name="parent_resp"/>
+						</group>
+						<group string="Informação de Matrículas">
+							<field name='vinculed_grades' string="Vincular Classes de Aula"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- TREE VIEW -->
+		<record id="view_action_students_data_list" model="ir.ui.view">
+			<field name="name">students.data.list.view</field>
+			<field name="model">students.data</field>
+			<field name="arch" type="xml">
+				<list string="Tabela Matrículas">
+					<field name="name" />
+					<field name="age" />
+					<field name="minor_bool" />
+					<field name="tel_apl" />
+					<field name="cpf_apl" />
+				</list>
+			</field>
+		</record>
+		<!-- ACTIONS -->
+		<record id="action_students_data" model="ir.actions.act_window">
+			<field name="name">Lista de Aplicantes</field>
+			<field name="res_model">students.data</field>
+			<field name="view_mode">list,form</field>
+		</record>
+	</data>
+</odoo>

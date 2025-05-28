@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- FORM DATA -->
+		<record id="view_action_grade_data_form" model="ir.ui.view">
+			<field name="name">grade.data.form.view</field>
+			<field name="model">grade.data</field>
+			<field name="arch" type="xml">
+				<form string="Matrículas">
+					<sheet>
+						<group string="Modalidade">
+							<field name="regs_list" />
+							<field name="reg_input" invisible="regs_list != 'new'" />
+							<field name="regs_stable" string="debug only: Regs_Stable"/>
+
+						</group>
+						<group string="Professor">
+							<field name='professor_ids' />
+						</group>
+						<group string="Horários da Modalidade">
+							<field name="section_age" />
+							<field name="time_range_ids"/>
+						</group>
+						<group string="Confirmar Dados">
+							<button name="matriculas.action_grade_data"
+								string="Submit"
+								type="action"
+								class="oe_highlight" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- LIST VIEW -->
+		<record id="view_action_grade_data_list" model="ir.ui.view">
+			<field name="name">grade.data.list</field>
+			<field name="model">grade.data</field>
+			<field name="arch" type="xml">
+				<list string="Modalidade">
+					<field name="regs_stable" string="Modalidade"/>
+					<field name='section_age'/>
+					<field name="time_summary"/>
+					<field name='professor_ids' />
+				</list>
+			</field>
+		</record>
+		<!-- ACTIONS -->
+		<record id="action_grade_data" model="ir.actions.act_window">
+			<field name="name">Matrículas</field>
+			<field name="res_model">grade.data</field>
+			<field name="view_mode">list,form</field>
+		</record>
+	</data>
+</odoo>
